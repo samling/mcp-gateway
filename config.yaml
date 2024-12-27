@@ -3,7 +3,7 @@ port: 3000
 
 # Debug configuration (optional)
 debug:
-  level: "info"  # Possible values: "error", "warn", "info", "debug", "verbose"
+  level: "verbose"  # Possible values: "error", "warn", "info", "debug", "verbose"
 
 # Authentication configuration (optional)
 # auth:
@@ -19,20 +19,18 @@ debug:
 
 servers:
   # run an MCP server with npx
-  filesystem:
+  everything:
     command: npx
     args:
       - -y
-      - "@modelcontextprotocol/server-filesystem"
-      - "/home/aaron"
-
-  # run a an MCP server from local source
-  puppeteer:
-    command: tsx
+      - "@modelcontextprotocol/server-everything"
+  brave-search:
+    command: npx
     args:
-      - "/home/aaron/AI/MCP-Servers/src/puppeteer/index.ts"
-
-  youtube:
-    command: tsx
+      - -y
+      - "@modelcontextprotocol/server-brave-search"
+  jina-ai-mcp-server:
+    command: npx
     args:
-      - "/home/aaron/AI/mcp-server-youtube-transcript/src/index.ts"
+      - -y
+      - jina-ai-mcp-server
